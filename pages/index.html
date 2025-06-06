@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVOU | Reserva</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/script/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/img/LogoReservou.png" alt="">
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu(this)">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="side-menu" id="sideMenu">
+            <a href="#">Home</a>
+            <a href="#">Favoritos</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="#">Conta</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="restaurant-map">
+            <div class="tables-container">
+                <div class="restaurant-info">
+                    <h2>ESTRUTURA RESTAURANTE</h2>
+                </div>
+                <div class="table table-1" onclick="selectTable(1)">1</div>
+                <div class="table table-2" onclick="selectTable(2)">2</div>
+                <div class="table table-3" onclick="selectTable(3)">3</div>
+                <div class="table table-4" onclick="selectTable(4)">4</div>
+                <div class="table table-5" onclick="selectTable(5)">5</div>
+                <div class="table table-6" onclick="selectTable(6)">6</div>
+                <div class="table table-7" onclick="selectTable(7)">7</div>
+                <div class="table table-8" onclick="selectTable(8)">8</div>
+                <div class="table table-9" onclick="selectTable(9)">9</div>
+                <div class="table table-10" onclick="selectTable(10)">10</div>
+                <div class="table table-11" onclick="selectTable(11)">11</div>
+                <div class="table table-12" onclick="selectTable(12)">12</div>
+                <div class="table table-13" onclick="selectTable(13)">13</div>
+                <div class="table table-14" onclick="selectTable(14)">14</div>
+                <div class="table table-15" onclick="selectTable(15)">15</div>
+                <div class="table table-16" onclick="selectTable(16)">16</div>
+                <div class="table table-17" onclick="selectTable(17)">17</div>
+                <div class="table table-18" onclick="selectTable(18)">18</div>
+                <div class="table table-19" onclick="selectTable(19)">19</div>
+                <div class="table table-20" onclick="selectTable(20)">20</div>
+                <div class="table table-21" onclick="selectTable(21)">21</div>
+                <div class="table table-22" onclick="selectTable(22)">22</div>
+                <div class="table table-23" onclick="selectTable(23)">23</div>
+
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color legend-available"></div>
+                    <span>Mesa disponível</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-selected"></div>
+                    <span>Mesa selecionada</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-occupied"></div>
+                    <span>Mesa ocupada</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reservation-modal" id="reservationModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Fazer Reserva</h2>
+                    <button class="close-modal" onclick="closeReservationModal()">&times;</button>
+                </div>
+
+                <div class="selected-table-info">
+                    <h3>Mesa <span id="selectedTableNumber">1</span></h3>
+                    <p>Capacidade: <span id="selectedTableCapacity">4</span> pessoas</p>
+                </div>
+
+                <div class="form-group">
+                    <h3>📅 Selecione a Data</h3>
+                    <div class="calendar">
+                        <div class="calendar-controls">
+                            <button onclick="changeMonth(-1)">‹ Anterior</button>
+                            <span id="monthYear"></span>
+                            <button onclick="changeMonth(1)">Próximo ›</button>
+                        </div>
+
+                        <div class="calendar-header">
+                            <div>Dom</div>
+                            <div>Seg</div>
+                            <div>Ter</div>
+                            <div>Qua</div>
+                            <div>Qui</div>
+                            <div>Sex</div>
+                            <div>Sáb</div>
+                        </div>
+
+                        <div class="calendar-days" id="calendarDays"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3>🕐 Selecione o Horário</h3>
+                    <div class="time-slots" id="timeSlots">
+                        <div class="time-slot" onclick="selectTime('17:00')">17:00</div>
+                        <div class="time-slot" onclick="selectTime('17:30')">17:30</div>
+                        <div class="time-slot" onclick="selectTime('18:00')">18:00</div>
+                        <div class="time-slot" onclick="selectTime('18:30')">18:30</div>
+                        <div class="time-slot" onclick="selectTime('19:00')">19:00</div>
+                        <div class="time-slot" onclick="selectTime('19:30')">19:30</div>
+                        <div class="time-slot" onclick="selectTime('20:00')">20:00</div>
+                        <div class="time-slot" onclick="selectTime('20:30')">20:30</div>
+                        <div class="time-slot" onclick="selectTime('21:00')">21:00</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3>👥 Quantidade de Pessoas</h3>
+                    <div class="people-selector">
+                        <button class="people-btn" onclick="changePeople(-1)">-</button>
+                        <div class="people-count" id="peopleCount">2 pessoas</div>
+                        <button class="people-btn" onclick="changePeople(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3>🚗 Deseja Estacionamento?</h3>
+                    <div class="parking-options">
+                        <div class="parking-option" onclick="selectParking(true, this)">SIM</div>
+                        <div class="parking-option" onclick="selectParking(false, this)">NÃO</div>
+
+                    </div>
+                </div>
+
+                <button class="reserve-btn" onclick="makeReservation()">Confirmar Reserva</button>
+            </div>
+        </div>
+
+        <!-- Mini tela-->
+        <div class="confirmation-modal" id="confirmationModal">
+            <div class="confirmation-content">
+                <h2>🎉 Reserva Confirmada!</h2>
+                <div class="confirmation-details" id="confirmationDetails">
+                    <!-- Detalhes serão preenchidos dinamicamente -->
+                </div>
+                <button class="confirmation-btn" onclick="closeConfirmationModal()">Fechar</button>
+            </div>
+        </div>
+
+
+</body>
+
+</html>

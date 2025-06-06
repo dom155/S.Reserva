@@ -1,0 +1,455 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+  --primary-red: #8B0000;
+  --accent-gold: #D4AF37;
+  --light-gold: #fce99f;
+  --dark-red: #5C0000;
+  --neutral-100: #FAFAFA;
+  --neutral-200: #F5F5F5;
+  --neutral-300: #E8E8E8;
+  --neutral-800: #2A2A2A;
+  --neutral-900: #1A1A1A;
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 12px rgba(139, 0, 0, 0.08);
+  --shadow-strong: 0 8px 24px rgba(139, 0, 0, 0.12);
+  --border-radius: 2px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Corpo da página */
+body {
+  background: linear-gradient(135deg, var(--neutral-100) 0%, #fde277 100%);
+  padding: 60px 40px;
+  color: var(--neutral-900);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  min-height: 100vh;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--primary-red);
+  font-size: 2.25rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+h2 {
+  color: var(--neutral-800);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 40px 0 30px 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* Botão Voltar */
+#voltarBtn {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto 40px auto;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+#voltarBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-red);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+#voltarBtn:hover::before {
+  left: 0;
+}
+
+#voltarBtn:hover {
+  color: white;
+  transform: translateY(-1px);
+}
+
+#voltarBtn a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Formulário */
+#formReserva {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 40px;
+  margin: 0 auto 50px auto;
+  max-width: 500px;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--neutral-300);
+}
+
+#formReserva label {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--neutral-800);
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#formReserva input,
+#formReserva select {
+  width: 100%;
+  padding: 16px 0;
+  margin-top: 8px;
+  border: none;
+  border-bottom: 1px solid var(--neutral-300);
+  background: transparent;
+  font-size: 16px;
+  color: var(--neutral-900);
+  transition: var(--transition);
+}
+
+#formReserva input:focus,
+#formReserva select:focus {
+  outline: none;
+  border-bottom-color: var(--accent-gold);
+}
+
+#formReserva button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 30px;
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#formReserva button:hover {
+  background: var(--dark-red);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Separador */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--neutral-300);
+  margin: 50px auto;
+  max-width: 100px;
+}
+
+/* Lista de Reservas */
+#listaReservas {
+  list-style-type: none;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#listaReservas li {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--neutral-200);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+#listaReservas li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent-gold);
+}
+
+#listaReservas li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+#listaReservas li .reserva-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#listaReservas li .reserva-info {
+  flex: 1;
+  line-height: 1.6;
+  color: var(--neutral-800);
+}
+
+#listaReservas li .reserva-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#listaReservas li button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  min-width: 70px;
+}
+
+#listaReservas li button:first-of-type {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+}
+
+#listaReservas li button:first-of-type:hover {
+  background: #C19B26;
+  transform: translateY(-1px);
+}
+
+#listaReservas li button:last-of-type {
+  background: var(--primary-red);
+  color: white;
+}
+
+#listaReservas li button:last-of-type:hover {
+  background: var(--dark-red);
+  transform: translateY(-1px);
+}
+
+/* Modal - Tamanho Otimizado */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 26, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 380px;
+  position: relative;
+  animation: modalSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-strong);
+}
+
+@keyframes modalSlide {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--neutral-800);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  background: var(--neutral-200);
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--neutral-800);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 6px;
+  border: none;
+  border-bottom: 1px solid var(--neutral-300);
+  background: transparent;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: none;
+  border-bottom-color: var(--accent-gold);
+}
+
+#salvarEdicao {
+  margin-top: 24px;
+  padding: 14px;
+  width: 100%;
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#salvarEdicao:hover {
+  background: var(--dark-red);
+  transform: translateY(-1px);
+}
+
+/* Spinner de carregamento */
+#loadingSpinner {
+  position: fixed;
+  top: 50%;
+  right: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 16px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  color: var(--primary-red);
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--neutral-300);
+  z-index: 2000;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* Oculto */
+.hidden {
+  display: none !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  body {
+    padding: 40px 20px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+  }
+  
+  #formReserva {
+    padding: 30px 25px;
+  }
+  
+  #listaReservas li {
+    padding: 25px 20px;
+  }
+  
+  #listaReservas li .reserva-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  #listaReservas li .reserva-actions {
+    justify-content: flex-end;
+  }
+  
+  .modal-content {
+    padding: 20px;
+    margin: 20px;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 30px 16px;
+  }
+  
+  #listaReservas li .reserva-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #listaReservas li button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    max-width: 300px;
+    padding: 18px;
+  }
+}

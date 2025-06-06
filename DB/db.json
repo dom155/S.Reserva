@@ -1,0 +1,46 @@
+{
+  "reservas": [
+    {
+      "mesa": 5,
+      "numeroMesa": "05",
+      "data": "2025-06-05",
+      "horario": "19:00",
+      "qtdPessoas": 4,
+      "estacionamento": "Sim",
+      "id": "1"
+    },
+    {
+      "id": 1749180216945,
+      "mesa": 10,
+      "numeroMesa": "10",
+      "data": "2025-06-11",
+      "horario": "20:30",
+      "qtdPessoas": 5,
+      "estacionamento": "Não",
+      "status": "confirmada",
+      "dataReserva": "2025-06-06T03:23:36.945Z"
+    },
+    {
+      "id": 17,
+      "mesa": 15,
+      "numeroMesa": "15",
+      "data": "2025-06-11",
+      "horario": "20:00",
+      "qtdPessoas": 5,
+      "estacionamento": "Sim",
+      "status": "confirmada",
+      "dataReserva": "2025-06-06T03:23:36.945Z"
+    },
+    {
+      "id": 1749180422417,
+      "mesa": 6,
+      "numeroMesa": "06",
+      "data": "2025-06-28",
+      "horario": "21:00",
+      "qtdPessoas": 5,
+      "estacionamento": "Não",
+      "status": "confirmada",
+      "dataReserva": "2025-06-06T03:27:02.417Z"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESERVOU | Reservas</title>
+  <link rel="stylesheet" href="/css/reservas.css" />
+</head>
+
+<body>
+  <div id="loadingSpinner" class="hidden">Carregando...</div>
+
+  <h1>Gerenciar Reservas</h1>
+  <button type="button" id="voltarBtn" onclick="window.location.href='index.html'">Voltar</button>
+
+  <div id="loadingSpinner" class="hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Modal de Edição -->
+  <div id="modalEditar" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <span class="close-modal" onclick="fecharModal()" aria-label="Fechar modal">×</span>
+      <h2 id="modal-title">Editar Reserva</h2>
+      <input type="hidden" id="editId" />
+      <label for="editMesa">Mesa:
+        <input type="number" id="editMesa" required />
+      </label>
+      <label for="editNumeroMesa">Nº Mesa:
+        <input type="text" id="editNumeroMesa" required />
+      </label>
+      <label for="editData">Data:
+        <input type="date" id="editData" required />
+      </label>
+      <label for="editHorario">Horário:
+        <input type="time" id="editHorario" required />
+      </label>
+      <label for="editQtdPessoas">Qtd Pessoas:
+        <input type="number" id="editQtdPessoas" required />
+      </label>
+      <label for="editEstacionamento">Estacionamento:
+        <select id="editEstacionamento">
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </label>
+      <button id="salvarEdicao">Salvar Alterações</button>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>Reservas Existentes</h2>
+  <ul id="listaReservas"></ul>
+
+  <script src="/script/crud.js"></script>
+  <script src="/script/interface.js"></script>
+</body>
+
+</html>
